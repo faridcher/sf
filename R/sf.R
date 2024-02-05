@@ -457,6 +457,7 @@ merge.sf = function(x, y, ...) {
 	class(ret) = setdiff(class(ret), "sf")
 	g = ret[[sf_column]] # may have NULL values in it
 	ret[[sf_column]] = NULL
+	attr(ret, "sf_column") <- sf_column
 	st_set_geometry(ret, st_sfc(g)) # FIXME: set agr
 }
 
